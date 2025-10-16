@@ -53,7 +53,6 @@ Nesta Sprint, o foco é apenas o **protótipo inicial em ASP.NET Webpages**, par
 - Permitir o cadastro de usuários e hábitos de saúde.  
 - Exibir os usuários e hábitos registrados em uma página de listagem.  
 - Armazenar e recuperar informações básicas dos usuários.  
-- Navegação entre páginas (Home, Cadastro, Listagem).  
 
 ### Requisitos Não Funcionais
 - Aplicação desenvolvida em ASP.NET Webpages.  

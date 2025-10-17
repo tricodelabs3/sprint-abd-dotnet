@@ -51,7 +51,7 @@ Nesta Sprint, o foco é apenas o **protótipo inicial em ASP.NET Webpages**, par
 
 ### Requisitos Funcionais
 - Permitir o cadastro de usuários
-- Exibir os usuários e hábitos registrados em uma página de listagem.  
+- Exibir os usuários em uma página de listagem.  
 - Armazenar e recuperar informações básicas dos usuários.  
 
 ### Requisitos Não Funcionais

@@ -1,8 +1,80 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Vitta.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Início";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mb-4">
+    <h1 class="text-primary fw-bold">Vitta</h1>
+</div>
+
+@if (TempData["MensagemSucesso"] != null) {
+    <div class="alert alert-success text-center">@TempData["MensagemSucesso"]</div>
+}
+
+@if (TempData["MensagemErro"] != null) {
+    <div class="alert alert-danger text-center">@TempData["MensagemErro"]</div>
+}
+
+<div class="row justify-content-center">
+    <!-- Formulário -->
+    <div class="col-md-5">
+        <div class="card shadow-sm p-4 mb-4">
+            <h4 class="text-secondary mb-3">Cadastrar Usuário</h4>
+
+            <form method="post">
+                <div class="mb-3">
+                    <label class="form-label">Nome</label>
+                    <input name="Nome" class="form-control" placeholder="Digite o nome" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input name="Email" type="email" class="form-control" placeholder="exemplo@email.com" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Objetivo</label>
+                    <input name="Objetivo" class="form-control" placeholder="Ex: melhorar alimentação" />
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Lista -->
+    
+    <!--<div class="col-md-7">
+        <div class="card shadow-sm p-4">
+            <h4 class="text-secondary mb-3">Usuários Cadastrados</h4>
+
+            @if (!Model.Any()) {
+                <p class="text-muted">Nenhum usuário cadastrado ainda.</p>
+            }
+            else {
+                <table class="table table-bordered table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Objetivo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var u in Model) {
+                            <tr>
+                                <td>@u.Id</td>
+                                <td>@u.Nome</td>
+                                <td>@u.Email</td>
+                                <td>@u.Objetivo</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>-->
+
 </div>

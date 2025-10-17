@@ -1,0 +1,25 @@
+@model Vitta.Models.Usuario
+
+<h2 class="text-secondary mb-4">Editar Usuário</h2>
+
+<form asp-action="Edit" method="post" class="card p-4 shadow-sm">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label class="form-label">Nome</label>
+        <input asp-for="Nome" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input asp-for="Email" class="form-control" type="email" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Objetivo</label>
+        <input asp-for="Objetivo" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-warning">Atualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

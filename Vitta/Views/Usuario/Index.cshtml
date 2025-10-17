@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Vitta.Models.Usuario>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-secondary">Usuários Cadastrados</h2>
+    <a asp-action="Create" class="btn btn-primary">+ Novo Usuário</a>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-light">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Objetivo</th>
+            <th style="width: 160px;">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model) {
+            <tr>
+                <td>@u.Id</td>
+                <td>@u.Nome</td>
+                <td>@u.Email</td>
+                <td>@u.Objetivo</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@u.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@u.Id" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

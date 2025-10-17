@@ -50,7 +50,7 @@ Nesta Sprint, o foco é apenas o **protótipo inicial em ASP.NET Webpages**, par
 ## 📋 Requisitos
 
 ### Requisitos Funcionais
-- Permitir o cadastro de usuários e hábitos de saúde.  
+- Permitir o cadastro de usuários
 - Exibir os usuários e hábitos registrados em uma página de listagem.  
 - Armazenar e recuperar informações básicas dos usuários.  
 

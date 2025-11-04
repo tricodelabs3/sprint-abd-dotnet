@@ -1,33 +1,44 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿// Vitta/Models/UsuarioRepository.cs
+using Vitta.Data; // Importar o DbContext
 
 namespace Vitta.Models {
+    // A classe agora implementa a interface IUsuarioRepository
     public class UsuarioRepository : IUsuarioRepository {
-        private static List<Usuario> usuarios = new List<Usuario>();
-        private static int nextId = 1;
+        // 1. Variável privada para guardar o contexto do banco
+        private readonly VittaDbContext _context;
 
-        public List<Usuario> GetAll() => usuarios;
+        // 2. Construtor que RECEBE o DbContext via Injeção de Dependência
+        public UsuarioRepository(VittaDbContext context) {
+            _context = context;
+        }
 
-        public Usuario? GetById(int id) => usuarios.FirstOrDefault(u => u.Id == id);
-
+        // 3. Implementação dos métodos usando EF Core
         public void Add(Usuario usuario) {
-            usuario.Id = nextId++;
-            usuarios.Add(usuario);
+            _context.Usuarios.Add(usuario);
+            _context.SaveChanges(); // Salva no banco
         }
 
         public void Update(Usuario usuario) {
-            var existente = GetById(usuario.Id);
-            if (existente != null) {
-                existente.Nome = usuario.Nome;
-                existente.Email = usuario.Email;
-                existente.Objetivo = usuario.Objetivo;
-            }
+            _context.Usuarios.Update(usuario);
+            _context.SaveChanges();
         }
 
         public void Delete(int id) {
-            var usuario = GetById(id);
-            if (usuario != null)
-                usuarios.Remove(usuario);
+            var usuario = _context.Usuarios.Find(id);
+            if (usuario != null) {
+                _context.Usuarios.Remove(usuario);
+                _context.SaveChanges();
+            }
+        }
+
+        public List<Usuario> GetAll() {
+            // Retorna todos os usuários do banco
+            return _context.Usuarios.ToList();
+        }
+
+        public Usuario? GetById(int id) {
+            // Busca um usuário pelo ID
+            return _context.Usuarios.Find(id);
         }
     }
 }

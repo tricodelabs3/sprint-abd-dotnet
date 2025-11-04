@@ -1,4 +1,4 @@
-@model Vitta.Models.Usuario
+@model Vitta.ViewModels.UsuarioCreateViewModel
 
 <h2 class="text-secondary mb-4">Cadastrar Usuário</h2>
 
@@ -10,11 +10,13 @@
     <div class="mb-3">
         <label class="form-label">Nome</label>
         <input asp-for="Nome" class="form-control" placeholder="Digite o nome" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
         <label class="form-label">Email</label>
         <input asp-for="Email" type="email" class="form-control" placeholder="exemplo@email.com" />
+        <span asp-validation-for="Email" class="text-danger"></span>
     </div>
 
     <div class="mb-3">

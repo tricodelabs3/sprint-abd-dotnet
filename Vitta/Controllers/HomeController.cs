@@ -1,33 +1,35 @@
+// Vitta/Controllers/HomeController.cs
 using Microsoft.AspNetCore.Mvc;
-using Vitta.Models;
-using Vitta.Services;
+using System.Diagnostics;
+using Vitta.Models; // Necessário para o ErrorViewModel
 
 namespace Vitta.Controllers {
     public class HomeController : Controller {
-        private readonly UsuarioService _service;
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeController() {
-            var repo = new UsuarioRepository();
-            _service = new UsuarioService(repo);
+        // 1. O construtor é corrigido para Injeção de Dependência (DI)
+        // Ele só pede o ILogger, que é o padrão.
+        public HomeController(ILogger<HomeController> logger) {
+            _logger = logger;
         }
 
+        // 2. A Action Index (GET) apenas retorna a View da homepage.
+        // A lógica de listar usuários foi REMOVIDA daqui.
         public IActionResult Index() {
-            var usuarios = _service.ListarTodos();
-            return View(usuarios);
+            return View();
         }
 
-        [HttpPost]
-        public IActionResult Index(Usuario usuario) {
-            try {
-                _service.Cadastrar(usuario);
-                TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso!";
-            }
-            catch (Exception ex) {
-                TempData["MensagemErro"] = ex.Message;
-            }
+        // 3. A Action Index (POST) de cadastro foi COMPLETAMENTE REMOVIDA daqui.
+        // O lugar dela é no UsuarioController.
 
-            var usuarios = _service.ListarTodos();
-            return View(usuarios);
+        // (Opcional, mas padrão do template)
+        public IActionResult Privacy() {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error() {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

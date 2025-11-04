@@ -1,33 +1,28 @@
-# 💡 Vitta – Prevenção Personalizada
+# Vitta – Prevenção Personalizada
 
-## 🧩 Descrição do Projeto
-O **Vitta – Prevenção Personalizada** é uma plataforma criada para ajudar as pessoas a cuidarem melhor da própria saúde de forma simples, prática e motivadora.  
-A ideia nasceu da percepção de que, no dia a dia, muitas pessoas querem ter uma vida mais saudável, mas não sabem por onde começar ou acabam desistindo por falta de acompanhamento e orientação.
+###  Descrição do Projeto
+O **Vitta – Prevenção Personalizada** é uma plataforma digital criada para ajudar as pessoas a cuidarem da saúde de forma simples e motivadora. Ela monitora hábitos como **alimentação, sono e exercícios**, oferecendo **orientações personalizadas** conforme o estilo de vida de cada usuário.  
 
-Nosso objetivo é oferecer uma ferramenta digital que **acompanhe os hábitos diários** do usuário — como alimentação, sono e exercícios — e que **oriente de forma personalizada** com base no estilo de vida de cada um.  
-Mais do que um aplicativo de monitoramento, o projeto busca ser um **assistente de saúde preventiva**, capaz de mostrar pequenas mudanças que podem gerar grandes resultados a longo prazo.
+Mais do que um aplicativo de monitoramento, o Vitta atua como um **assistente de saúde preventiva**, reunindo informações sobre **nutrição, atividade física e bem-estar**, além de **dicas, alertas e metas**.  
 
-A plataforma pretende reunir, em um só lugar, informações sobre nutrição, atividade física e bem-estar, apresentando **dicas, alertas e metas personalizadas** para incentivar o usuário a cuidar da própria saúde de forma equilibrada e constante.
+Seu propósito é **estimular hábitos saudáveis e prevenir problemas**, tornando o cuidado com a saúde **mais acessível, equilibrado e constante**.
 
-Com isso, o **Vitta** quer ajudar as pessoas a viverem melhor, adotando hábitos saudáveis antes que surjam problemas — transformando a prevenção em algo leve, acessível e motivador.
 
 ---
 
-## 🎯 Problema
-Hoje, a correria da vida moderna faz com que muitas pessoas deixem a saúde em segundo plano.  
-Com a rotina cheia, é fácil perder o controle da alimentação, dormir mal e deixar de se exercitar.  
-Com o tempo, esses hábitos acabam aumentando os riscos de doenças como **diabetes, obesidade e hipertensão**, que poderiam ser evitadas com simples ações diárias.
+### 🎯 Problema
+Hoje, a correria da vida moderna faz com que muitas pessoas deixem a **saúde em segundo plano**. 
+Com a rotina cheia, é fácil **perder o controle da alimentação, dormir mal e deixar de se exercitar**.  
+Com o tempo, esses hábitos aumentam os riscos de doenças como **diabetes, obesidade e hipertensão**, que poderiam ser evitadas com simples ações diárias.
 
-Existem muitos aplicativos de saúde no mercado, mas a maioria deles **apenas coleta dados**, como passos, calorias ou horas de sono.  
-Poucos realmente **interpretam essas informações** e oferecem **orientações personalizadas** sobre o que o usuário pode melhorar em sua rotina.  
-Além disso, acompanhar tudo separadamente — dieta, treino, clima, sono — acaba se tornando confuso e desmotivador.
+Apesar de existirem muitos aplicativos de saúde, a maioria **apenas coleta dados** — como passos, calorias ou horas de sono — sem realmente **interpretá-los ou orientar o usuário**.  
+Além disso, acompanhar tudo separadamente — **dieta, treino, clima, sono** — pode ser confuso e desmotivador.
 
-O **Vitta** surge justamente para resolver esse problema:  
-ele quer transformar dados em **cuidados reais**, traduzindo informações sobre o corpo e o dia a dia em **ações práticas e recomendações fáceis de seguir**, com o foco total em **prevenir doenças e melhorar a qualidade de vida**.
+O **Vitta** surge para **resolver esse problema**, transformando **dados em cuidados reais**.
 
 ---
 
-## ✅ Solução Proposta
+### ✅ Solução Proposta
 Criar uma plataforma web que:
 - Permita o **cadastro de usuários e acompanhamento de hábitos de saúde**;
 - Reúna no futuro informações sobre **alimentação, exercícios e sono**;
@@ -38,7 +33,7 @@ Nesta Sprint, o foco é apenas o **protótipo inicial em ASP.NET Webpages**, par
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+### ⚙️ Tecnologias Utilizadas
 - **Linguagem:** C#  
 - **Framework:** ASP.NET (Webpages)  
 - **IDE:** Visual Studio / Visual Studio Code  
@@ -47,14 +42,14 @@ Nesta Sprint, o foco é apenas o **protótipo inicial em ASP.NET Webpages**, par
 
 ---
 
-## 📋 Requisitos
+### 📋 Requisitos
 
-### Requisitos Funcionais
+#### Requisitos Funcionais
 - Permitir o cadastro de usuários
 - Exibir os usuários em uma página de listagem.  
 - Armazenar e recuperar informações básicas dos usuários.  
 
-### Requisitos Não Funcionais
+#### Requisitos Não Funcionais
 - Aplicação desenvolvida em ASP.NET Webpages.  
 - Código versionado no GitHub com histórico de commits.  
 - Interface simples, funcional e responsiva.  
@@ -62,7 +57,7 @@ Nesta Sprint, o foco é apenas o **protótipo inicial em ASP.NET Webpages**, par
 
 ---
 
-## 🧠 Visão de Arquitetura (Planejada para próximas sprints)
+### 🧠 Visão de Arquitetura (Planejada para próximas sprints)
 No futuro a solução pretende seguir o padrão **Clean Architecture**, organizada em quatro camadas principais:
 
 - **Apresentação:** Páginas ASP.NET e Controllers (interação com o usuário).  
@@ -72,7 +67,7 @@ No futuro a solução pretende seguir o padrão **Clean Architecture**, organiza
 
 ---
 
-## 👥 Integrantes do Grupo
+### 👥 Integrantes do Grupo
 | Nome | RM |
 |------|-------------------|
 | Jhonatta Lima Sandes de Oliveira | RM560277 |
@@ -81,13 +76,13 @@ No futuro a solução pretende seguir o padrão **Clean Architecture**, organiza
 
 ---
 
-## 📅 Entrega – Sprint 1
+### 📅 Entrega – Sprint 1
 - **Conteúdo Entregue:** Protótipo inicial em ASP.NET com Webpages.  
 - **Professor Responsável:** Marcel Stefan Wagner
 
 ---
 
-## 🚀 Próximos Passos (Sprint 2)
+### 🚀 Próximos Passos (Sprint 2)
 - Implementar a arquitetura em camadas (Clean Architecture).  
 - Conectar o backend ao banco de dados Oracle.  
 - Adicionar consumo de APIs externas (nutrição, clima ou exercícios).  

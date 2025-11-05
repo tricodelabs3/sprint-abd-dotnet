@@ -1,6 +1,9 @@
 # Ignorar pasta do Visual Studio
 .vs/
 
-# Build e bin�rios
+# Configurações secretas de ambiente
+appsettings.Development.json
+
+# Build e bin�rios
 bin/
 obj/

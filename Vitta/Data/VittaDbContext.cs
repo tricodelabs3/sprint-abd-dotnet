@@ -3,7 +3,6 @@ using Vitta.Models; // Importa sua entidade Usuario
 
 namespace Vitta.Data {
     public class VittaDbContext : DbContext {
-        // Construtor que recebe as opções de configuração (como a connection string)
         public VittaDbContext(DbContextOptions<VittaDbContext> options) : base(options) {
         }
 

@@ -1,10 +1,11 @@
-﻿// Vitta/Controllers/UsuarioController.cs
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Vitta.Models;
 using Vitta.Services;
-using Vitta.ViewModels; // Importar o ViewModel
+using Vitta.ViewModels;
 
 namespace Vitta.Controllers {
+    // Define uma rota base para o controller. Ex: "http://localhost/Usuario"
+    [Route("[controller]")]
     public class UsuarioController : Controller {
         private readonly UsuarioService _service;
 
@@ -12,31 +13,30 @@ namespace Vitta.Controllers {
             _service = service;
         }
 
+        // Rota: /Usuario ou /Usuario/Index
+        [Route("Index")]
+        [Route("")] // Rota padrão para este controller
         public IActionResult Index() {
             var usuarios = _service.ListarTodos();
             return View(usuarios);
         }
 
-        // Mudança no CREATE
-
+        // Rota: /Usuario/Novo
+        [Route("Novo")]
         public IActionResult Create() => View();
 
         [HttpPost]
-        public IActionResult Create(UsuarioCreateViewModel viewModel) // <-- Mudou para ViewModel
-        {
-            // 1. Verifica se as validações [Required], [EmailAddress] etc. passaram
+        [Route("Novo")]
+        public IActionResult Create(UsuarioCreateViewModel viewModel) {
             if (!ModelState.IsValid) {
-                return View(viewModel); // Retorna à tela de cadastro com os erros
+                return View(viewModel);
             }
-
             try {
-                // 2. "Mapeia" o ViewModel para a Entidade
                 var usuario = new Usuario {
                     Nome = viewModel.Nome,
                     Email = viewModel.Email,
                     Objetivo = viewModel.Objetivo
                 };
-
                 _service.Cadastrar(usuario);
                 return RedirectToAction(nameof(Index));
             }
@@ -46,43 +46,35 @@ namespace Vitta.Controllers {
             }
         }
 
-
-
+        // Rota: /Usuario/Editar/5
+        [Route("Editar/{id}")]
         public IActionResult Edit(int id) {
             var usuario = _service.BuscarPorId(id);
             if (usuario == null) return NotFound();
 
-            // Mapeia a Entidade para o ViewModel
             var viewModel = new UsuarioEditViewModel {
                 Id = usuario.Id,
                 Nome = usuario.Nome,
                 Email = usuario.Email,
                 Objetivo = usuario.Objetivo
             };
-
-            return View(viewModel); // Envia o ViewModel para a tela
+            return View(viewModel);
         }
 
-        // POST: /Usuario/Edit/5
         [HttpPost]
+        [Route("Editar/{id}")]
         public IActionResult Edit(int id, UsuarioEditViewModel viewModel) {
-            // Verifica se o ID da rota é o mesmo do ViewModel (segurança)
             if (id != viewModel.Id) return NotFound();
-
-            // Verifica se as validações do ViewModel ([Required], etc.) passaram
             if (!ModelState.IsValid) {
-                return View(viewModel); // Retorna para a tela de edição com os erros
+                return View(viewModel);
             }
-
             try {
-                // Mapeia o ViewModel de volta para a Entidade
                 var usuario = new Usuario {
                     Id = viewModel.Id,
                     Nome = viewModel.Nome,
                     Email = viewModel.Email,
                     Objetivo = viewModel.Objetivo
                 };
-
                 _service.Atualizar(usuario);
                 return RedirectToAction(nameof(Index));
             }
@@ -92,18 +84,17 @@ namespace Vitta.Controllers {
             }
         }
 
-
-
-
-
-        //DELETE
+        // Rota: /Usuario/Excluir/5
+        [Route("Excluir/{id}")]
         public IActionResult Delete(int id) {
             var usuario = _service.BuscarPorId(id);
             if (usuario == null) return NotFound();
-            return View(usuario);
+            return View(usuario); // A view de delete ainda usa a Entidade, o que está OK.
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
+        [Route("Excluir/{id}")]
+        [ActionName("Delete")] // Mantém o ActionName para o formulário
         public IActionResult ConfirmDelete(int id) {
             _service.Excluir(id);
             return RedirectToAction(nameof(Index));
